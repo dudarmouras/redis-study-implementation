@@ -1,4 +1,4 @@
-📦 Redis + Prisma Cache (Manual vs Extension)
+# 📦 Redis + Prisma Cache (Manual vs Extension)
 
 Projeto de estudo comparando duas abordagens de cache com Redis em um backend usando:
 
@@ -16,7 +16,7 @@ Demonstrar na prática:
 - Estratégias de invalidação de cache
 - Como inspecionar o cache com Redis Insights
 
-⚙️ Tecnologias
+# ⚙️ Tecnologias
 express
 @prisma/client
 redis (manual)
@@ -33,19 +33,17 @@ docker run --name redis-cache -p 6379:6379 -d redis
 - Middleware: npm install prisma-redis-extension ioredis
 3. Rodar os servidores
 
-Manual:
+# Manual:
 
-npm run dev:manual
-# porta 3001
+npm run dev: manual
+porta 3001
 
-Middleware:
+# Middleware:
 
-npm run dev:middleware
-# porta 3002
-🧠 Como funciona (visão prática)
-🔴 Manual (controle total)
+npm run dev: middleware
+porta 3002
 
-⚖️ Diferenças principais
+# ⚖️ Diferenças principais
 - Aspecto	Manual	Extension
 - Controle	Total	Limitado
 - Complexidade	Alta	Baixa
@@ -55,11 +53,11 @@ npm run dev:middleware
 - Debug	Manual	Hooks (onHit, onMiss)
 - Flexibilidade	Máxima	Média
 
-📊 Vantagens reais
+# 📊 Vantagens reais
 Manual: maior controle (ex: cache por rota, headers, params), customização total de key, ideal para lógica específica (ex: multi-tenant, filtros complexos)
 Extension: zero boilerplate, fácil de escalar, padronização automática, menos chance de erro humano, integração direta com Prisma
 
-🔍 Como testar na prática (diferença real)
+# 🔍 Como testar na prática (diferença real)
 1. Teste de tempo (ms)
 
 Use:
@@ -96,13 +94,13 @@ Você consegue ver:
 - dados armazenados
 - invalidação acontecendo
 
-🧪 Cenários que você deve testar
+# 🧪 Cenários que você deve testar
 - GET repetido (ver cache funcionando)
 - POST criando item (ver invalidação)
 - PUT atualizando (ver invalidação)
 - TTL expirando (ver novo MISS)
 
-🧩 Quando usar cada abordagem
+# 🧩 Quando usar cada abordagem
 Use manual se:
 - precisa controlar cache por endpoint
 - lógica depende de headers/query params
@@ -113,7 +111,7 @@ Use extension se:
 - quer padronização
 - time não quer lidar com cache manual
 
-⚠️ Limitações do middleware
+# ⚠️ Limitações do middleware
 
 O extension não cobre: queries customizadas complexas, cache baseado em headers (ex: auth, locale), lógica fora do Prisma, queryRaw
 
